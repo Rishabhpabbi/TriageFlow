@@ -1,11 +1,21 @@
 import pandas as pd
 from pathlib import Path
 
-# Resolve data directory relative to this file
-_BASE = Path(__file__).resolve().parent.parent.parent
-_TRACK1 = _BASE / "Data Sources for Hackathon" / "hackathon-data" / "track-1-clinical-ai" / "synthea-patients"
-_SHARED = _BASE / "Data Sources for Hackathon" / "hackathon-data" / "shared"
-_DRUG_DB = _SHARED / "drug-database" / "canadian_drug_reference.csv"
+# Resolve data directory — check repo-local data/ first, then hackathon kit path
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+_REPO_DATA = _PROJECT_ROOT / "data"
+
+if (_REPO_DATA / "track-1-clinical-ai" / "patients.csv").exists():
+    # Data is in the repo (deployed / cloned from GitHub)
+    _TRACK1 = _REPO_DATA / "track-1-clinical-ai"
+    _SHARED = _REPO_DATA / "shared"
+else:
+    # Fallback: data is in the hackathon kit parent directory (local dev)
+    _BASE = _PROJECT_ROOT.parent
+    _TRACK1 = _BASE / "Data Sources for Hackathon" / "hackathon-data" / "track-1-clinical-ai" / "synthea-patients"
+    _SHARED = _BASE / "Data Sources for Hackathon" / "hackathon-data" / "shared" / "drug-database"
+
+_DRUG_DB = _SHARED / "canadian_drug_reference.csv"
 
 
 def load_patients() -> pd.DataFrame:
