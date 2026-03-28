@@ -8,31 +8,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.ed_simulator import run_comparison, CTAS_CONFIG
+from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="ED Simulation | TriageFlow", page_icon="🏥", layout="wide")
-
-# --- Custom CSS ---
-st.markdown("""
-<style>
-div[data-testid="stMetric"] {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 12px 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-div[data-testid="stMetric"] label {
-    color: #64748B;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.title("ED Patient Flow Simulation")
-st.markdown("*Compare Traditional vs AI-Optimized triage on a 5-room Emergency Department over 24 hours.*")
-st.divider()
+st.set_page_config(page_title="ED Simulation | TriageFlow", page_icon="⚡", layout="wide")
+inject_global_css()
+render_sidebar()
+render_page_header("⚡ ED Patient Flow Simulation", "Compare Traditional vs AI-Optimized triage on a 5-room Emergency Department over 24 hours.")
 
 # --- Simulation Parameters ---
 with st.expander("Simulation Parameters", expanded=False):

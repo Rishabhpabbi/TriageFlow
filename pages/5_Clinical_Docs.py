@@ -7,21 +7,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.data_loader import load_patients, load_encounters, load_medications, load_lab_results, load_vitals
 from utils.ai_engine import USE_CLAUDE_API
+from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="Clinical Documentation | TriageFlow", page_icon="🏥", layout="wide")
-
-st.markdown("""
-<style>
-div[data-testid="stMetric"] {
-    background-color: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px;
-    padding: 12px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.title("AI Clinical Documentation")
-st.markdown("*Auto-generate SOAP notes, suggest ICD-10 codes, and reduce documentation burden by up to 70%.*")
-st.divider()
+st.set_page_config(page_title="Clinical Documentation | TriageFlow", page_icon="📝", layout="wide")
+inject_global_css()
+render_sidebar()
+render_page_header("📝 AI Clinical Documentation", "Auto-generate SOAP notes, suggest ICD-10 codes, and reduce documentation burden by up to 70%.")
 
 
 @st.cache_data

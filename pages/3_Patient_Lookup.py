@@ -13,12 +13,12 @@ from utils.data_loader import (
     get_patient_summary, check_drug_interactions,
 )
 from utils.ai_engine import get_patient_brief, get_interaction_explanation
+from utils.styles import inject_global_css, render_sidebar, render_page_header
 
 st.set_page_config(page_title="Patient Lookup | TriageFlow", page_icon="🔍", layout="wide")
-
-st.title("Patient Lookup")
-st.markdown("*Complete patient view with history, medications, labs, vitals, and AI-generated clinical brief.*")
-st.divider()
+inject_global_css()
+render_sidebar()
+render_page_header("🔍 Patient Lookup", "Complete patient view with history, medications, labs, vitals, and AI-generated clinical brief.")
 
 
 @st.cache_data
@@ -63,21 +63,31 @@ if not filtered.empty:
 
         # --- Demographics Banner ---
         st.divider()
-        d_cols = st.columns(6)
-        with d_cols[0]:
-            st.metric("Patient", demo["name"])
-        with d_cols[1]:
-            st.metric("Age", f"{demo['age']} years")
-        with d_cols[2]:
-            st.metric("Sex", demo["sex"])
-        with d_cols[3]:
-            st.metric("Blood Type", demo["blood_type"])
-        with d_cols[4]:
-            st.metric("Encounters", summary["encounter_count"])
-        with d_cols[5]:
-            risk_count = sum(1 for v in summary["risk_factors"].values() if v)
-            risk_label = "High" if risk_count >= 3 else "Medium" if risk_count >= 1 else "Low"
-            st.metric("Risk Level", risk_label, delta=f"{risk_count} factors")
+        risk_count = sum(1 for v in summary["risk_factors"].values() if v)
+        risk_label = "High" if risk_count >= 3 else "Medium" if risk_count >= 1 else "Low"
+        risk_color = "#DC2626" if risk_label == "High" else "#CA8A04" if risk_label == "Medium" else "#16A34A"
+
+        demo_items = [
+            ("Patient", demo["name"], "#0066CC"),
+            ("Age / Sex", f"{demo['age']}yo {demo['sex']}", "#334155"),
+            ("Blood Type", demo["blood_type"], "#334155"),
+            ("Encounters", str(summary["encounter_count"]), "#2563EB"),
+            ("Risk Level", risk_label, risk_color),
+            ("Risk Factors", str(risk_count), risk_color),
+        ]
+        demo_html = "".join(
+            f'<div style="text-align:center;padding:16px 12px;background:white;border-radius:12px;'
+            f'border:1px solid #E2E8F0;box-shadow:0 1px 3px rgba(0,0,0,0.04);">'
+            f'<div style="color:#64748B;font-size:0.72rem;font-weight:600;text-transform:uppercase;'
+            f'letter-spacing:0.05em;margin-bottom:6px;">{label}</div>'
+            f'<div style="font-size:1.2rem;font-weight:700;color:{color};">{value}</div>'
+            f'</div>' for label, value, color in demo_items
+        )
+        st.markdown(
+            f'<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;gap:10px;margin-bottom:8px;">'
+            f'{demo_html}</div>',
+            unsafe_allow_html=True,
+        )
 
         st.divider()
 

@@ -10,12 +10,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.data_loader import load_patients, load_encounters, load_vitals
+from utils.styles import inject_global_css, render_sidebar, render_page_header
 
 st.set_page_config(page_title="ED Dashboard | TriageFlow", page_icon="📊", layout="wide")
-
-st.title("Emergency Department Dashboard")
-st.markdown("*Real-time view of ED patient flow, wait times, and capacity across Victoria-area hospitals.*")
-st.divider()
+inject_global_css()
+render_sidebar()
+render_page_header("📊 Emergency Department Dashboard", "Real-time view of ED patient flow, wait times, and capacity across Victoria-area hospitals.")
 
 
 @st.cache_data
