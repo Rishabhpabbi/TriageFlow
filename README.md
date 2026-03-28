@@ -14,7 +14,7 @@ pinned: true
 **AI-Powered Emergency Department Triage & Care Navigation**
 
 > UVic Healthcare AI Hackathon 2026 | Track 1: Clinical AI
-> Team: Rishabh Pabbi
+> Team: Rishabh Pabbi & Puneet Velidi
 
 **[Live Demo](https://triageflow.streamlit.app)**
 
