@@ -16,7 +16,7 @@ pinned: true
 > UVic Healthcare AI Hackathon 2026 | Track 1: Clinical AI
 > Team: Rishabh Pabbi & Puneet Velidi
 
-**[Live Demo](https://triageflow.streamlit.app)**
+**[Live Demo](https://triageflow.streamlit.app)** | **[Presentation Slides](https://github.com/Rishabhpabbi/TriageFlow/blob/main/presentation/TriageFlow_Presentation.pptx)**
 
 ---
 
