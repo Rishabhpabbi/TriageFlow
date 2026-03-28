@@ -14,11 +14,11 @@ from utils.sms_service import (
 )
 from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="SMS Triage | TriageFlow", page_icon="📱", layout="wide")
+st.set_page_config(page_title="SMS Triage | TriageFlow", page_icon=":material/local_hospital:", layout="wide")
 inject_global_css()
 render_sidebar()
 render_page_header(
-    "📱 SMS Triage",
+    "SMS Triage",
     "Enter your BC HSP number and symptoms to receive a triage assessment via SMS.",
 )
 

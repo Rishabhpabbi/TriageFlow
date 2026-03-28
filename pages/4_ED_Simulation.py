@@ -10,10 +10,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils.ed_simulator import run_comparison, CTAS_CONFIG
 from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="ED Simulation | TriageFlow", page_icon="⚡", layout="wide")
+st.set_page_config(page_title="ED Simulation | TriageFlow", page_icon=":material/local_hospital:", layout="wide")
 inject_global_css()
 render_sidebar()
-render_page_header("⚡ ED Patient Flow Simulation", "Compare Traditional vs AI-Optimized triage on a 5-room Emergency Department over 24 hours.")
+render_page_header("ED Patient Flow Simulation", "Compare Traditional vs AI-Optimized triage on a 5-room Emergency Department over 24 hours.")
 
 # --- Simulation Parameters ---
 with st.expander("Simulation Parameters", expanded=False):

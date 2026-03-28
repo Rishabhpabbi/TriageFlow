@@ -10,10 +10,10 @@ from utils.triage_model import train_model, load_model, predict_triage, get_care
 from utils.ai_engine import get_clinical_assessment
 from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="Care Navigator | TriageFlow", page_icon="🧭", layout="wide")
+st.set_page_config(page_title="Care Navigator | TriageFlow", page_icon=":material/local_hospital:", layout="wide")
 inject_global_css()
 render_sidebar()
-render_page_header("🧭 Care Navigator", "Enter symptoms and vitals to get AI-powered triage assessment and care routing.")
+render_page_header("Care Navigator", "Enter symptoms and vitals to get AI-powered triage assessment and care routing.")
 
 
 @st.cache_resource

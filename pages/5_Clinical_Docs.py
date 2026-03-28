@@ -9,10 +9,10 @@ from utils.data_loader import load_patients, load_encounters, load_medications, 
 from utils.ai_engine import USE_CLAUDE_API
 from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="Clinical Documentation | TriageFlow", page_icon="📝", layout="wide")
+st.set_page_config(page_title="Clinical Documentation | TriageFlow", page_icon=":material/local_hospital:", layout="wide")
 inject_global_css()
 render_sidebar()
-render_page_header("📝 AI Clinical Documentation", "Auto-generate SOAP notes, suggest ICD-10 codes, and reduce documentation burden by up to 70%.")
+render_page_header("AI Clinical Documentation", "Auto-generate SOAP notes, suggest ICD-10 codes, and reduce documentation burden by up to 70%.")
 
 
 @st.cache_data

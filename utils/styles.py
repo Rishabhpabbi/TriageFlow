@@ -188,34 +188,35 @@ h3 {
 """
 
 _SIDEBAR_HTML = """
-<div style="text-align: center; padding: 8px 0 4px 0;">
-    <div style="font-size: 2.2em; margin-bottom: 2px;">🏥</div>
-    <h2 style="margin: 0; font-size: 1.5em; font-weight: 800;
+<div style="padding: 8px 0 4px 0;">
+    <h2 style="margin: 0; font-size: 1.4em; font-weight: 800;
         background: linear-gradient(135deg, #60A5FA, #34D399);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         letter-spacing: -0.02em;">TriageFlow</h2>
-    <p style="color: #94A3B8; font-size: 0.82em; margin-top: 4px; font-weight: 400;">
-        AI-Powered ED Triage & Care Navigation
+    <p style="color: #94A3B8; font-size: 0.8em; margin-top: 4px; font-weight: 400;">
+        AI-Powered ED Triage &amp; Care Navigation
     </p>
 </div>
 <hr style="border: none; height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0;">
-<div style="padding: 0 4px;">
-    <p style="color: #94A3B8; font-size: 0.7em; text-transform: uppercase;
+<div style="padding: 0 2px;">
+    <p style="color: #64748B; font-size: 0.68em; text-transform: uppercase;
         letter-spacing: 0.08em; font-weight: 600; margin-bottom: 8px;">Navigation</p>
-    <div style="font-size: 0.88em; line-height: 2.2;">
-        <div>🧭 <strong>Care Navigator</strong> <span style="color:#64748B;">— Triage & routing</span></div>
-        <div>📊 <strong>ED Dashboard</strong> <span style="color:#64748B;">— Live ED analytics</span></div>
-        <div>🔍 <strong>Patient Lookup</strong> <span style="color:#64748B;">— Full patient view</span></div>
-        <div>⚡ <strong>ED Simulation</strong> <span style="color:#64748B;">— AI vs Traditional</span></div>
-        <div>📝 <strong>Clinical Docs</strong> <span style="color:#64748B;">— SOAP & ICD-10</span></div>
-        <div>📱 <strong>SMS Triage</strong> <span style="color:#64748B;">— Triage via text</span></div>
+    <div style="font-size: 0.86em; line-height: 2.0;">
+        <div><strong style="color:#34D399;">Live ED</strong> <span style="color:#475569;font-size:0.9em;">— Join the waiting room</span></div>
+        <div><strong style="color:#E2E8F0;">Care Navigator</strong> <span style="color:#475569;font-size:0.9em;">— Triage &amp; routing</span></div>
+        <div><strong style="color:#E2E8F0;">ED Dashboard</strong> <span style="color:#475569;font-size:0.9em;">— Live ED analytics</span></div>
+        <div><strong style="color:#E2E8F0;">Patient Lookup</strong> <span style="color:#475569;font-size:0.9em;">— Full patient view</span></div>
+        <div><strong style="color:#E2E8F0;">ED Simulation</strong> <span style="color:#475569;font-size:0.9em;">— AI vs Traditional</span></div>
+        <div><strong style="color:#E2E8F0;">Clinical Docs</strong> <span style="color:#475569;font-size:0.9em;">— SOAP &amp; ICD-10</span></div>
+        <div><strong style="color:#E2E8F0;">SMS Triage</strong> <span style="color:#475569;font-size:0.9em;">— Triage via text</span></div>
+        <div><strong style="color:#E2E8F0;">Email Triage</strong> <span style="color:#475569;font-size:0.9em;">— Triage via email</span></div>
     </div>
 </div>
 <hr style="border: none; height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0;">
-<div style="text-align: center; padding: 4px 0;">
-    <p style="color: #64748B; font-size: 0.75em; margin: 0;">
+<div style="padding: 4px 0;">
+    <p style="color: #64748B; font-size: 0.73em; margin: 0; line-height: 1.6;">
         UVic Healthcare AI Hackathon<br>
-        <span style="color: #94A3B8;">March 27-28, 2026 | Track 1</span>
+        <span style="color: #475569;">March 27–28, 2026 &middot; Track 1</span>
     </p>
 </div>
 """

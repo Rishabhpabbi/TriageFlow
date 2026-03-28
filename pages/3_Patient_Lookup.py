@@ -15,10 +15,10 @@ from utils.data_loader import (
 from utils.ai_engine import get_patient_brief, get_interaction_explanation
 from utils.styles import inject_global_css, render_sidebar, render_page_header
 
-st.set_page_config(page_title="Patient Lookup | TriageFlow", page_icon="🔍", layout="wide")
+st.set_page_config(page_title="Patient Lookup | TriageFlow", page_icon=":material/local_hospital:", layout="wide")
 inject_global_css()
 render_sidebar()
-render_page_header("🔍 Patient Lookup", "Complete patient view with history, medications, labs, vitals, and AI-generated clinical brief.")
+render_page_header("Patient Lookup", "Complete patient view with history, medications, labs, vitals, and AI-generated clinical brief.")
 
 
 @st.cache_data
