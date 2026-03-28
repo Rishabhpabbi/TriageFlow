@@ -208,6 +208,7 @@ _SIDEBAR_HTML = """
         <div>🔍 <strong>Patient Lookup</strong> <span style="color:#64748B;">— Full patient view</span></div>
         <div>⚡ <strong>ED Simulation</strong> <span style="color:#64748B;">— AI vs Traditional</span></div>
         <div>📝 <strong>Clinical Docs</strong> <span style="color:#64748B;">— SOAP & ICD-10</span></div>
+        <div>📱 <strong>SMS Triage</strong> <span style="color:#64748B;">— Triage via text</span></div>
     </div>
 </div>
 <hr style="border: none; height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0;">

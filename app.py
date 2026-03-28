@@ -104,7 +104,6 @@ st.divider()
 
 # --- Feature Cards ---
 st.markdown("## Features")
-feat_cols = st.columns(5)
 
 features = [
     {
@@ -142,27 +141,38 @@ features = [
         "gradient": "linear-gradient(135deg, #FEF2F2, #FECACA)",
         "accent": "#DC2626",
     },
+    {
+        "icon": "📱", "title": "SMS Triage",
+        "desc": "Get triage assessment via SMS. Enter HSP number and symptoms, receive care routing by text.",
+        "stat": "HIPAA-aware design",
+        "gradient": "linear-gradient(135deg, #FDF2F8, #FCE7F3)",
+        "accent": "#DB2777",
+    },
 ]
 
-for i, feat in enumerate(features):
-    with feat_cols[i]:
-        st.markdown(
-            f"""
-            <div style="background: {feat['gradient']}; padding: 24px 18px; border-radius: 14px;
-                text-align: center; height: 100%; transition: transform 0.2s ease;
-                border: 1px solid rgba(0,0,0,0.04);"
-                onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
-                <div style="font-size: 2em; margin-bottom: 10px;">{feat['icon']}</div>
-                <h3 style="margin: 0 0 8px 0; font-size: 1.05em; color: #0F172A;">{feat['title']}</h3>
-                <p style="color: #475569; font-size: 0.85em; line-height: 1.5; margin-bottom: 12px;">{feat['desc']}</p>
-                <div style="background: rgba(0,0,0,0.06); padding: 4px 12px; border-radius: 20px;
-                    font-size: 0.75em; color: {feat['accent']}; font-weight: 600; display: inline-block;">
-                    {feat['stat']}
+# 2 rows of 3 for better card sizing
+feat_rows = [features[:3], features[3:]]
+for row in feat_rows:
+    row_cols = st.columns(3)
+    for col_idx, feat in enumerate(row):
+        with row_cols[col_idx]:
+            st.markdown(
+                f"""
+                <div style="background: {feat['gradient']}; padding: 24px 18px; border-radius: 14px;
+                    text-align: center; height: 100%; transition: transform 0.2s ease;
+                    border: 1px solid rgba(0,0,0,0.04);"
+                    onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+                    <div style="font-size: 2em; margin-bottom: 10px;">{feat['icon']}</div>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.05em; color: #0F172A;">{feat['title']}</h3>
+                    <p style="color: #475569; font-size: 0.85em; line-height: 1.5; margin-bottom: 12px;">{feat['desc']}</p>
+                    <div style="background: rgba(0,0,0,0.06); padding: 4px 12px; border-radius: 20px;
+                        font-size: 0.75em; color: {feat['accent']}; font-weight: 600; display: inline-block;">
+                        {feat['stat']}
+                    </div>
                 </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+                """,
+                unsafe_allow_html=True,
+            )
 
 st.divider()
 
@@ -172,6 +182,7 @@ tech_items = [
     ("🤖", "ML Model", "Gradient Boosting<br>scikit-learn"),
     ("🧠", "AI Engine", "Claude API<br>Anthropic"),
     ("🗄️", "Data", "Synthea EHR<br>2K patients, 10K encounters"),
+    ("📱", "SMS", "Twilio API<br>Mock + Live modes"),
 ]
 tech_html = "".join(
     f'<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:20px;'
@@ -182,7 +193,7 @@ tech_html = "".join(
     for icon, title, desc in tech_items
 )
 st.markdown(
-    f'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">{tech_html}</div>',
+    f'<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">{tech_html}</div>',
     unsafe_allow_html=True,
 )
 
