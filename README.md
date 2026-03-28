@@ -15,6 +15,8 @@ pinned: true
 > UVic Healthcare AI Hackathon 2026 | Track 1: Clinical AI
 > Team: Rishabh Pabbi
 
+**[Live Demo](https://rpabbi-triageflow.hf.space)**
+
 ---
 
 ## The Problem
